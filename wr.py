@@ -1,6 +1,5 @@
 import datetime
-import pickle
-class word:
+class wr:
     meaning = None
     article = None
     streak = None
@@ -9,6 +8,7 @@ class word:
 
     def __init__(self, word:str):
         self.word = word
+        self.created = datetime.datetime.now()
 
     def setMeaning(self, meaning:str):
         self.meaning = meaning
