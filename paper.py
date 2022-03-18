@@ -1,6 +1,19 @@
+import pickle
+from wr import wr
 import json
-with open("english.json", "r") as save:
-    settings = json.load(save)
+a = wr("a")
+b = wr("b")
+c = wr("c")
 
-print(type(settings))
-print(settings)
+dic = {}
+
+dic[a.word] = a
+dic[b.word] = b
+dic[c.word] = c
+print(dic)
+with open("english.pkl", "wb") as save:
+    for item in dic:
+        print(item)
+        pickle.dump(dic[item], save)
+
+

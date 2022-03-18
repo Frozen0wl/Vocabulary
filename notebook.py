@@ -32,6 +32,24 @@ class notebook:
             self.settings["frequency"] = lst
             json.dump(self.settings, save, indent = 4)
 
+    def setMeaning(self, word:wr, meaning:str):
+        word.setMeaning(meaning)
+
+    def setArticle(self, word:wr, article:str):
+        word.setArticle(self, article)
+
+    def updateWords(self): #overwrites the pickle file with self.words dictionary
+        with open(self.name + ".pkl", "wb") as save:
+            for item in self.words:
+                pickle.dump(self.words[item], save)
+
+    def quiz():
+        
+            
+    
+
+        
+        
                     
         
 
