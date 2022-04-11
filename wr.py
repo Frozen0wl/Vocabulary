@@ -2,9 +2,9 @@ import datetime
 class wr:
     meaning = None
     article = None
-    streak = None
+    streak = None # 
     totalTraining = 0 # number of time the word was called
-    lastCalled = None
+    lastCalled = None # date
 
     def __init__(self, word:str):
         self.word = word

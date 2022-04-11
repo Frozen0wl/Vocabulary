@@ -38,12 +38,16 @@ class notebook:
     def setArticle(self, word:wr, article:str):
         word.setArticle(self, article)
 
+    def getMeaning(self, word:str):
+        return self.words[word].meaning
+
     def updateWords(self): #overwrites the pickle file with self.words dictionary
         with open(self.name + ".pkl", "wb") as save:
             for item in self.words:
                 pickle.dump(self.words[item], save)
 
     def quiz():
+        pass
         
             
     
@@ -55,4 +59,13 @@ class notebook:
 
 english = notebook("english")
 
-    
+english.addWord("hello")
+
+# english.words['a'].meaning = "please change"
+# print(english.getMeaning('a'))
+# english.updateWords
+
+
+# english.setMeaning(wr(english.words['a']), "apple")
+# print(english.getMeaning('a'))
+# print(english.words['a'])
