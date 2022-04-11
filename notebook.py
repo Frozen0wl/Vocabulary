@@ -15,13 +15,7 @@ class notebook:
         
     def getWords(self):
         with open(self.name + ".pkl", 'rb') as read:
-            while True:
-                try:
-                    obj = pickle.load(read)
-                    self.words[obj.word] = obj
-                except Exception as e:
-                    if str(e) == "Ran out of input": break
-                    else: print(e); break
+            self.words = pickle.load(read)
     
     def loadSettings(self):
         with open(self.name + ".json", "r") as settings:
@@ -32,8 +26,8 @@ class notebook:
             self.settings["frequency"] = lst
             json.dump(self.settings, save, indent = 4)
 
-    def setMeaning(self, word:wr, meaning:str):
-        word.setMeaning(meaning)
+    def setMeaning(self, word:str, meaning:str):
+        self.words[word].setMeaning(meaning)
 
     def setArticle(self, word:wr, article:str):
         word.setArticle(self, article)
@@ -43,8 +37,7 @@ class notebook:
 
     def updateWords(self): #overwrites the pickle file with self.words dictionary
         with open(self.name + ".pkl", "wb") as save:
-            for item in self.words:
-                pickle.dump(self.words[item], save)
+            pickle.dump(self.words, save)
 
     def quiz():
         pass
@@ -57,15 +50,7 @@ class notebook:
                     
         
 
-english = notebook("english")
-
-english.addWord("hello")
-
-# english.words['a'].meaning = "please change"
-# print(english.getMeaning('a'))
-# english.updateWords
-
-
-# english.setMeaning(wr(english.words['a']), "apple")
-# print(english.getMeaning('a'))
-# print(english.words['a'])
+german = notebook("german")
+# german.setMeaning('a', "new meaning")
+print(german.getMeaning('a'))
+# german.updateWords()
